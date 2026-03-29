@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>QuiMath</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<!--link del css-->
+</head>
+<body>
+<!--Header-->
+<header>
+    <div class="logo">Qui<span>Math</span></div>
+    <span class="header-tag">calculadora quimica</span>
+</header>
+<!--Main-->
+<main>
+    <div class="page-intro">
+        <h2>herramientas</h2>
+        <p>Seleccione una calculadora para comenzar</p>
+    </div>
+<!--Card Grid-->
+<div class="card-grid">
+    
+    <!--Card:Gramos a Moles-->
+    <div class="card" onclick="openModal('moles')">
+        <div class="card-icon">/</div>
+        <div class="card-title">Moles</div>
+        <div class="card-desc">Convierte entre gramos y moles usando la masa molar del compuesto.</div>
+        <span class="card-tag">g ↔ mol</span>
+    </div>
+    <!--Card:Molaridad-->
+        <div class="card" onclick="openModal('molaridad')">
+        <div class="card-icon">🧪</div>
+     <div class="card-title">Molaridad</div>
+      <div class="card-desc">Calcula la concentración molar de una solución a partir de moles y volumen.</div>
+     <span class="card-tag">M = mol/L</span>
+    </div>
+     <!--Card:Disolucion-->
+     <div class="card" onclick="openModal('disolucion')">
+        <div class="card-icon">💧</div>
+     <div class="card-title">Disolucion--</div>
+      <div class="card-desc">Aplica la fórmula de dilución para encontrar concentración o volumen final.</div>
+     <span class="card-tag">M₁(V₁) = M₂(V₂)</span>
+    </div>
+    <!--Card:Masa Molar-->
+    <div class="card" onclick="openModal('masa-molar')">
+        <div class="card-icon">⚖️</div>
+     <div class="card-title">Masa Molar</div>
+      <div class="card-desc">Suma los pesos atómicos de los elementos de un compuesto para obtener su masa molar.</div>
+     <span class="card-tag">Mm = g/mol</span>
+    </div>
+    <!--Card:% en masa-->
+    <div class="card" onclick="openModal('porciento')">
+        <div class="card-icon">%</div>
+     <div class="card-title">% en masa--</div>
+      <div class="card-desc">Calcula el porcentaje en masa de un soluto disuelto en una solución.</div>
+     <span class="card-tag">%elemento = (masa elemento/masa total compuesto) x 100</span>
+    </div>
+     <!--Card:Fórmula Empírica-->
+     <div class="card" onclick="openModal('empirica')">
+        <div class="card-icon">🔬</div>
+     <div class="card-title">Fórmula Empírica</div>
+      <div class="card-desc">expresión más simple de un compuesto químico</div>
+     <span class="card-tag">forma mas simple</span>
+    </div>
+
+</div>
+</main>
+
+<!--Modales-->
+
+<!--Modal:Moles-->
+ <div class="overlay" id="modal-moles">
+    <div class="modal-header">
+        <div class="modal-title">/ Moles</div>
+        <button class="modal-close" onclick="closeModal('moles')">x</button>
+    </div>
+    <label>formula hint</label>
+    <div class="formula-hint">n = m / M</div>
+    <div class="field">
+        <label>Masa del compuesto (g)</label>
+        <input type="number" id="moles-masa" placeholder="ej. 36" min="0"/>
+      </div>
+    <div class="field">
+        <label>Masa molar (g/mol)</label>
+        <input type="number" id="moles-mmolar" placeholder="ej. 18 para H₂O" min="0"/>
+    </div>
+    <button class="btn-calc" onclick="calcMoles()">Calcular</button>
+
+    <div class="result-box" id="moles-result">
+    <div class="result-label">Resultado</div>
+    <div class="result-value" id="moles-value">—</div>
+    <div class="result-unit">mol</div>
+
+ </div>
+
+</body>
+
+</html>
