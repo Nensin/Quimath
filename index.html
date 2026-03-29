@@ -183,6 +183,39 @@
         <div class="result-value">—</div>
         <div class="result-unit">—</div>
     </div>
-</body>
+</div>
+<!--Masa molar-->
+<div class="overlay" id="modal-masa-molar">
+    <div class="modal">
+        <!--Header-->
+        <div class="modal-header">
+            <span class="modal-title">⚖️ Masa Molar</span>
+            <button class="modal-close" onclick="closeModal('masa-molar')">x</button>
+        </div>
+        <!--Formula-->
+        <label>Formula:</label>
+        <div class="formula-hint">Mm = Σ (peso atómico x cantidad de átomos)</div>
+        <!--Container para los elementos-->
+        <div class="mm-elementos">
+        <!-- los campos se generan dinámicamente desde JS -->
+        </div>
+        <!--Button:Agrega un elemtno nuevo al DOM-->
+        <button class="btn-calc"  onclick="addElemento()">+Agregar elemento</button>
+        <!--Divide los botones-->
+        <div class="modal-divider"></div>
 
+        <!--Button:Calacular Masa Molar-->
+        <button class="btn-calc" onclick="calcMasaMolar()">Calcular</button>
+        <!--Resultado-->
+        <div class="result-box" id="moles-result">
+            <div class="result-label">Resultado</div>
+            <div class="result-value" id="moles-value">—</div>
+            <div class="result-unit">mol</div>
+        </div>
+ </div>
+</div>
+
+
+
+</body>
 </html>
