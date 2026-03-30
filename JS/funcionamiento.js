@@ -143,6 +143,7 @@ function addElementoMm(){
         <label>Cantidad del elemento</label>
         <input type="number" step="any" class="mm-cantidad" placeholder="ej. '2' H en H₂O" min="1"/>
     </div>
+    <button class="btn-eliminar" onclick="this.parentElement.remove()">✕</button>
     `;
     container.appendChild(div);
 }

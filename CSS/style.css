@@ -238,6 +238,25 @@ main{
 .field input:focus, .field select:focus{
     border-color: var(--accent);
 }
+
+#mm-elementos{
+    max-height: 280px;
+    overflow-y: auto;
+    padding-right: 6px;
+}
+#mm-elementos::-webkit-scrollbar {
+    width: 4px;
+}
+
+#mm-elementos::-webkit-scrollbar-track {
+    background: var(--border);
+    border-radius: 99px;
+}
+
+#mm-elementos::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 99px;
+}
 /*--------Boton:Calcular-------*/
 .btn-calc{
     width: 100%;
@@ -260,6 +279,22 @@ main{
 }
 .btn-calc:active{
     transform: translateY(0);
+}
+/*-------Boton:Eliminar------*/
+.btn-eliminar{
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    border-radius: 8px;
+    padding: 8px 10px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: background 0.15s,color 0.15s;
+    margin-bottom: 18px;
+}
+.btn-eliminar:hover{
+    background:var(--border);
+
 }
 /*-------Result box------*/
 .result-box{
