@@ -113,12 +113,12 @@
      <label>Formula:</label>
     <div class="formula-hint">M = mol/L</div>
     <!--Fiel:Moles-->
-    <div class="field>">
+    <div class="field">
         <label>Moles(mol)</label>
         <input type="number" id="mol-moles" placeholder="ej: 5">
     </div>
     <!--Field:Volumen(L)-->
-    <div class="field>">
+    <div class="field">
         <label>Volumen(L)</label>
         <input type="number" id="mol-vol" placeholder="ej: 2">
     </div>
@@ -139,49 +139,50 @@
         <!--Header-->
         <div class="modal-header">
             <span class="modal-title">💧 Dilución</span>
-            <button class="closeModal" onclick="closeModal()">x</button>
+            <button class="closeModal" onclick="closeModal('disolucion')">x</button>
         </div>
-    </div>
-    <!--Formula:-->
-    <label>Formula:</label>
-    <div class="formula-hint">M₁V₁ = M₂V₂ → despeja para lo que necesites</div>
-    <!--Field:Que calcular-->
-    <div class="field">
-        <label>¿Que quieres calcular?</label>
-        <select id="dil-target">
-        <option value="M1">Molaridad inicial(M₁)</option>
-        <option value="V1">Volumen inicial(V₁)</option>
-        <option value="M2">Molaridad final(M₂)</option>
-        <option value="V2">Volumen final(V₂)</option>
-        </select>
-    </div> 
-    <!--Field:M1-->
-    <div class="field">
-        <label>M₁ — Molaridad inicial (M)</label>
-        <input type="number" id="dil-m1" placeholder="2M">
-    </div>
-    <!--Field:V1-->
-    <div class="field">
-        <label>V₁ — Volumen inicial (L)</label>
-        <input type="number" id="dil-v1" placeholder="2.4L">
-    </div>
-    <!--Field:M2-->
-    <div class="field">
-        <label>M₂ — Molaridad final</label>
-        <input type="number" id="dil-m2" placeholder="2M">
-    </div>
-    <!--Field:V2-->
-    <div class="field">
-        <label>V₂ —Volumen final (L)</label>
-        <input type="number" id="dil-v2" placeholder="2.4L">
-    </div>
-    <!--Button:Calcular-->
-    <button class="btn-calc" onclick="calcDisolucion()">Calcular</button> 
-    <!--Resultados-->
-    <div class="result-box">
-        <div class="result-label">Resultado</div>
-        <div class="result-value">—</div>
-        <div class="result-unit">—</div>
+    
+        <!--Formula:-->
+        <label>Formula:</label>
+        <div class="formula-hint">M₁V₁ = M₂V₂ → despeja para lo que necesites</div>
+        <!--Field:Que calcular-->
+        <div class="field">
+            <label>¿Que quieres calcular?</label>
+            <select id="dil-target">
+            <option value="M1">Molaridad inicial(M₁)</option>
+            <option value="V1">Volumen inicial(V₁)</option>
+            <option value="M2">Molaridad final(M₂)</option>
+            <option value="V2">Volumen final(V₂)</option>
+            </select>
+        </div> 
+        <!--Field:M1-->
+        <div class="field">
+            <label>M₁ — Molaridad inicial (M)</label>
+            <input type="number" id="dil-m1" placeholder="2M">
+        </div>
+        <!--Field:V1-->
+        <div class="field">
+            <label>V₁ — Volumen inicial (L)</label>
+            <input type="number" id="dil-v1" placeholder="2.4L">
+        </div>
+        <!--Field:M2-->
+        <div class="field">
+            <label>M₂ — Molaridad final</label>
+            <input type="number" id="dil-m2" placeholder="2M">
+        </div>
+        <!--Field:V2-->
+        <div class="field">
+            <label>V₂ —Volumen final (L)</label>
+            <input type="number" id="dil-v2" placeholder="2.4L">
+        </div>
+        <!--Button:Calcular-->
+        <button class="btn-calc" onclick="calcDisolucion()">Calcular</button> 
+        <!--Resultados-->
+        <div class="result-box" id="disolucion-result">
+            <div class="result-label">Resultado</div>
+            <div class="result-value" id="disolucion-value">—</div>
+            <div class="result-unit">—</div>
+        </div>
     </div>
 </div>
 <!--Masa molar-->
@@ -200,14 +201,14 @@
         <!-- los campos se generan dinámicamente desde JS -->
         </div>
         <!--Button:Agrega un elemtno nuevo al DOM-->
-        <button class="btn-calc"  onclick="addElemento()">+Agregar elemento</button>
+        <button class="btn-calc"  onclick="addElementoMm()">+Agregar elemento</button>
         <!--Divide los botones-->
         <div class="modal-divider"></div>
 
         <!--Button:Calacular Masa Molar-->
         <button class="btn-calc" onclick="calcMasaMolar()">Calcular</button>
         <!--Resultado-->
-        <div class="result-box" id="moles-result">
+        <div class="result-box" id="masa-molar-result">
             <div class="result-label">Resultado</div>
             <div class="result-value" id="masa-molar-value">—</div>
             <div class="result-unit">Mm</div>
@@ -228,7 +229,7 @@
         <!--Field:Masa Molar total del elemento-->
         <div class="field">
             <label>Masa molar total del elemento:</label>
-            <input type="number" id="pct elemento" placeholder="ej.2.016g H" min="0">
+            <input type="number" id="pct-elemento" placeholder="ej.2.016g H" min="0">
         </div>
         <!--Field:Masa Molar total del compuesto-->
         <div class="field">
@@ -236,11 +237,11 @@
             <input type="number" id="pct-compuesto" placeholder="ej.18g H20" min="0">
         </div>
         <!--Button: Calcular-->
-        <button class="btn-calc" onclick="calcPorciento()">Calcular</button>
+        <button class="btn-calc" onclick="calcporciento()">Calcular</button>
         <!--Resultado-->
-        <div class="result-box" id="moles-result">
+        <div class="result-box" id="Porciento-result">
             <div class="result-label">Resultado</div>
-            <div class="result-value" id="moles-value">—</div>
+            <div class="result-value" id="porciento-value">—</div>
             <div class="result-unit">%</div>
         </div>
     </div>
@@ -261,14 +262,14 @@
         <!-- los campos se generan dinámicamente desde JS -->
         </div>
         <!--Button:Agrega un elemtno nuevo al DOM-->
-        <button class="btn-calc"  onclick="addElemento()">+Agregar elemento</button>
+        <button class="btn-calc"  onclick="addElementoFE()">+Agregar elemento</button>
         <!--Divide los botones-->
         <div class="modal-divider"></div>
 
         <!--Button:Calacular Masa Molar-->
         <button class="btn-calc" onclick="calcEmpirica()">Calcular</button>
         <!--Resultado-->
-        <div class="result-box" id="moles-result">
+        <div class="result-box" id="empirica-result">
             <div class="result-label">Resultado</div>
             <div class="result-value" id="empirica-value">—</div>
             <div class="result-unit">-</div>
