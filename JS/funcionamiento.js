@@ -57,7 +57,7 @@ function calcMolaridad(){
     //Muestra resultado
     showResult('molaridad-result','molaridad-value',result)
 }
-//Funcion:Disolucion
+/*-----Funcion:Disolucion---------*/
 function calcDisolucion(){
     const M1 = parseFloat(document.getElementById('dil-m1').value);
     const V1 = parseFloat(document.getElementById('dil-v1').value);
@@ -121,6 +121,26 @@ function updateDisabledField() {
 }
 targetSelect.addEventListener('change', updateDisabledField);
 updateDisabledField();
+/*--------------------------------*/
+
+//Funcion: Masa Molar: crear los elementos
+function addElementoMm(){
+    const container = document.getElementById('mm-elementos');
+    const div = document.createElement('div');
+    div.style.cssText = 'display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:12px;';
+
+    div.innerHTML = `
+    <div class ="field">
+        <label>Masa atomica</label>
+        <input type="number" step="any" class="mm-peso" placeholder="ej. 12g C" min='0/>
+    </div>
+    <div class="field">
+        <label>Cantidad del elemento</label>
+        <input type="number" step="any" class="mm-cantidad" placerholder="ej. 2-H H₂O" min="1"/>
+    </div>
+    `;
+    container.appendChild(div);
+}
 //Funcion Porciento de masa
 function calcPorciento(){
     const Masaelemento = parseFloat(document.getElementById('pct-elemento').value);

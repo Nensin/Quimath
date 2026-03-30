@@ -81,7 +81,7 @@ main{
 /*Card & Grdid*/
 .card-grid{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));/*pon todas las columnas que quepan, cada una de mínimo 240px y máximo el espacio disponible*/
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));/*pone todas las columnas que quepan, cada una de mínimo 240px y máximo el espacio disponible*/
     gap: 18px;
 }
 .card{
