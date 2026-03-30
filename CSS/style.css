@@ -8,7 +8,7 @@
     --accent:#00c896;
     --accent-lt: #00c8966a;
     --text:#e8eaf0;
-    --muted:#6b7080;
+    --muted:#d9ddec;
     /*Fuentes de texto y bordes*/
     --radius:18px;
     --shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
@@ -155,6 +155,160 @@ main{
 .overlay.active{
     display: flex;
 }
+    
 /*---------Modales:Modal-----------*/
-
+ .modal {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 36px 36px 32px;
+    width: 100%;
+    max-width: 460px;
+    box-shadow: var(--shadow);
+ }
+ /*---------Modales:Modal-header-----------*/
+ .modal-header{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 24px;
+ }
+ /*---------Modales:Modal-title----------*/
+ .modal-title{
+    font-family: var(--font-head);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text);
+ }
+ /*---------Modales:Modal-close----------*/
+ .modal-close{
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--muted);
+    padding: 2px 6px;
+    border-radius: 6px;
+    transition: background 0.15s;
+ }
+ /*--------Formula hint-----------*/
+ .formula-hint{
+    font-family: var(--font-head);
+    font-size: 0.78rem;
+    color: var(--muted);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin-bottom: 20px;
+    letter-spacing: 0.02em;
+ }
+ /*--------Modales:Modal-divisor----*/
+ .modal-divider{
+    height: 1px;
+    background: var(--border);
+    margin: 2opx 0;
+ }
+/*----Fields-------*/
+.field{
+    margin-bottom: 18px;
+}
+.field label{
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--muted);
+    margin-bottom: 7px;
+    letter-spacing: 0.03rem;
+    text-transform: uppercase;
+    font-family: var(--font-head);
+}
+.field input,.field select{
+    width: 100%;
+    padding: 11px 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    color: var(--text);
+    background: var(--bg);
+    outline: none;
+    transition: border-color 0.15s;
+}
+.field input:focus, .field select:focus{
+    border-color: var(--accent);
+}
+/*--------Boton:Calcular-------*/
+.btn-calc{
+    width: 100%;
+    padding: 13px;
+    background: var(--accent);
+    color: #0f1117;
+    border: none;
+    border-radius: 10px;
+    font-family: var(--font-head);
+    font-size: 0.88rem;
+    font-weight: 500;
+    cursor: pointer;
+    letter-spacing: 0.03em;
+    margin-top: 6px;
+    transition: opacity 0.15s, transform 0.12s;
+}
+.btn-calc:hover{
+    opacity: 0.88;
+    transform: translateY(-1px);
+}
+.btn-calc:active{
+    transform: translateY(0);
+}
+/*-------Result box------*/
+.result-box{
+    display: none;
+    margin-top: 20px;
+    padding: 16px 18px;
+    background: var(--accent-lt);
+    border-radius: 10px;
+    border-left: 3px solid var(--accent);
+}
+.result-box.visible{
+    display: block;
+}
+.result-label{
+    font-family: var(--font-head);
+    font-size: 0.8rem;
+    color: var(--accent);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+.result-value{
+    font-family: var(--font-head);
+    font-size: 1.3rem;
+    color: var(--text);
+    font-weight: 500;
+}
+.result-unit{
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin-top: 4px;
+}
+/*---------Responsive Desing---------*/
+@media (max-width: 600px) {
+    header {
+      padding: 18px 20px;  /* menos padding en móvil */
+    }
+  
+    main {
+      padding: 36px 16px 60px;  /* menos padding en móvil */
+    }
+  
+    .modal {
+      padding: 28px 22px 26px;  /* modal más compacto */
+    }
+  
+    .card-grid {
+      grid-template-columns: 1fr;  /* una sola columna en móvil */
+    }
+  }
+ 
 
