@@ -68,18 +68,44 @@ function calcDisolucion(){
     const target = document.getElementById('dil-target').value;
     //Procedimiento
     let result;
+    let unit = "";
     if(target==='M1'){
         result = (M2 * V2)/V1;
+        unit= "M";
     }else if(target ==='V1'){
         result=(M2*V2)/M1
+        unit= "L";
     }else if(target ==='M2'){
         result=(M1*V1)/V2
+        unit= "M";
     }else if(target ==='V2'){
         result=(M1*V1)/M2
+        unit= "L";
     }
     showResult('disolucion-result','disolucion-value', result)
+    document.getElementById('disolucion-unit').textContent = unit;
 
 }
+//Funcion:Disolucion:bloquear la opcion elegida
+const targetSelect=document.getElementById('dig-target');
+function updateDisableField(){
+    const target = targetSelect.value;
+    const allFields =['m1', 'v1', 'm2', 'v2'];
+    allFields.forEach(field =>{
+        const inputElement = document.getElementById(`dil-${field}`);
+
+        if(target.toLowerCase() === field){
+            inputElement.disabled =true;
+            inputElement.value = '';
+            inputElement.style.opacity= '0.5';
+        }else{
+            inputElement.disabled = false;
+            inputElement.style.opacity= '1';
+        }
+    });
+}
+targetSelect.addEventListener('change', updateDisableField);
+updateDisableField();
 //Funcion Porciento de masa
 function calcPorciento(){
     const Masaelemento = parseFloat(document.getElementById('pct-elemento').value);
