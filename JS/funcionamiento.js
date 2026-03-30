@@ -28,7 +28,7 @@ document.addEventListener('keydown', (e) =>{
 
 //Funcion para mostrar los resultados
 function showResult(boxId, valueId, value){
-    document.getElementById(valueId).textContent=parseFloat(value.toFixed(4))
+    document.getElementById(valueId).textContent=parseFloat(value.toFixed(8))
     document.getElementById(boxId).classList.add('visible')
 }
 //Funcion Calcular los moles
@@ -87,25 +87,25 @@ function calcDisolucion(){
 
 }
 //Funcion:Disolucion:bloquear la opcion elegida
-const targetSelect=document.getElementById('dig-target');
-function updateDisableField(){
+const targetSelect= document.getElementById('dil-target');
+function updateDisabledField() {
     const target = targetSelect.value;
-    const allFields =['m1', 'v1', 'm2', 'v2'];
-    allFields.forEach(field =>{
+    const allFields = ['m1', 'v1', 'm2', 'v2'];    
+    allFields.forEach(field => {
         const inputElement = document.getElementById(`dil-${field}`);
-
-        if(target.toLowerCase() === field){
-            inputElement.disabled =true;
-            inputElement.value = '';
-            inputElement.style.opacity= '0.5';
+        // Si el campo coincide con el target (ignorando mayúsculas/minúsculas)
+        if(target.toLowerCase() === field) {
+            inputElement.disabled = true; //Lo bloqueamos
+            inputElement.value = '';    //Lo vaciamos
+            inputElement.style.opacity = '0.5';//Lo hacemos ver desabilitado
         }else{
-            inputElement.disabled = false;
-            inputElement.style.opacity= '1';
+            inputElement.disabled = false; //lo habilitamos
+            inputElement.style.opacity= '1';// Restauramos su aspecto
         }
     });
 }
-targetSelect.addEventListener('change', updateDisableField);
-updateDisableField();
+targetSelect.addEventListener('change', updateDisabledField);
+updateDisabledField();
 //Funcion Porciento de masa
 function calcPorciento(){
     const Masaelemento = parseFloat(document.getElementById('pct-elemento').value);
