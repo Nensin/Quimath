@@ -47,10 +47,49 @@ function calcMoles(){
 function calcMolaridad(){
     const moles =parseFloat( document.getElementById('mola-moles').value);
     const litros = parseFloat(document.getElementById('mola-vol').value);
+    //Valadacion
      if(isNaN(moles) || isNaN(litros)){
         alert('Por favor ingrese todos los valores.')
         return;
      }
+    //Procedimiento
     let result = moles/litros;
+    //Muestra resultado
     showResult('molaridad-result','molaridad-value',result)
+}
+//Funcion:Disolucion
+function calcDisolucion(){
+    const M1 = parseFloat(document.getElementById('dil-m1').value);
+    const V1 = parseFloat(document.getElementById('dil-v1').value);
+    const M2 = parseFloat(document.getElementById('dil-m2').value);
+    const V2 = parseFloat(document.getElementById('dil-v2').value);
+
+    //Constante Target
+    const target = document.getElementById('dil-target').value;
+    //Procedimiento
+    let result;
+    if(target==='M1'){
+        result = (M2 * V2)/V1;
+    }else if(target ==='V1'){
+        result=(M2*V2)/M1
+    }else if(target ==='M2'){
+        result=(M1*V1)/V2
+    }else if(target ==='V2'){
+        result=(M1*V1)/M2
+    }
+    showResult('disolucion-result','disolucion-value', result)
+
+}
+//Funcion Porciento de masa
+function calcPorciento(){
+    const Masaelemento = parseFloat(document.getElementById('pct-elemento').value);
+    const MmolarComp = parseFloat(document.getElementById('pct-compuesto').value);
+    //Validacion
+    if(isNaN(Masaelemento) || isNaN(MmolarComp)){
+        alert('Por favor ingrese todos los valores')
+        return;
+    }
+    //Procedimiento
+    let result = (Masaelemento/MmolarComp) * 100;
+    showResult('porciento-result','porciento-value',result)
 }
