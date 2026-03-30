@@ -1,7 +1,8 @@
 /*--Constantes--*/
 :root{
     /*colores*/
-    --bg:#f5f4f0;
+    --bg2:#f5f4f0;
+    --bg: #0f1117;
     --surface:#1a1d27;
     --border:#2a2d3a;
     --accent:#00c896;
@@ -56,7 +57,7 @@ header{
     color: var(--accent-lt);
 }
 /*---Main---*/
-.main{
+main{
     max-width: 1000px;
     margin: 0 auto;
     padding: 52px 24px 80px;
@@ -93,12 +94,7 @@ header{
     position: relative;
     overflow: hidden;
 }
-/*Card Hover*/
-.card:hover{
-    transform: translateY(-); /*hace que suba 3px hacia arriba*/
-    box-shadow: var(--shadow);
-    border-color: var(--accent);
-}
+/*Card: icon,Title,Descripcion y Tag*/
 .card-icon {
     font-size: 1.5rem;
     margin-bottom: 14px;
@@ -127,4 +123,38 @@ header{
     border-radius: 99px;
     letter-spacing: 0.03em;
 }
+/*Card Hover*/
+.card::before {
+    content: '';             
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--accent-lt);
+    opacity: 0;               /* invisible por defecto */
+    transition: opacity 0.18s ease;
+    border-radius: var(--radius) 0 0 var(--radius);
+  }
+
+.card:hover::before {
+    opacity: 1;               /* aparece al hacer hover */
+}
+/*---------Modales:Overlay-----------*/
+.overlay{
+    display: none;
+    position:fixed;
+    inset:0;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(4px);
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+.overlay.active{
+    display: flex;
+}
+/*---------Modales:Modal-----------*/
+
 
