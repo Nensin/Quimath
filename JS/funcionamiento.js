@@ -16,3 +16,18 @@ document.querySelectorAll('.overlay').forEach(overlay =>{
         }
     });
 });
+//Funcion para mostrar los resultados
+function showResult(boxId, valueId, value){
+    document.getElementById(valueId).textContent=parseFloat(value.toFixed(4))
+    document.getElementById(boxId).classList.add('visible')
+}
+function calcMoles(){
+    const masa = parseFloat(document.getElementById('moles-masa').value);
+    const mmolar =parseFloat(document.getElementById('moles-mmolar').value);
+    //Validacion
+    if(isNaN(masa) || isNaN(mmolar)){
+        alert('Por favor ingresa todos los valores.')
+    }
+    let resultado = masa/mmolar;
+    showResult('moles-result', 'moles-value', resultado);
+}
