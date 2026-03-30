@@ -66,9 +66,24 @@ function calcDisolucion(){
 
     //Constante Target
     const target = document.getElementById('dil-target').value;
+    //Validacion
+    if(target=== 'M1' &&(isNaN(V1)|| isNaN(M2)||isNaN(V2))){
+        alert('Por favor ingrese todos los valores.')
+        return;
+    }else if(target=== 'V1' &&(isNaN(M1)|| isNaN(M2)||isNaN(V2))){
+        alert('Por favor ingrese todos los valores.')
+        return;
+    }else if(target==='M2' &&(isNaN(M1)|| isNaN(V1)||isNaN(V2))){
+        alert('Por favor ingrese todos los valores.')
+        return;
+    }else if(target==='V2' &&(isNaN(M1)|| isNaN(V1)||isNaN(M2))){
+        alert('Por favor ingrese todos los valores.')
+        return;
+    }
     //Procedimiento
     let result;
     let unit = "";
+    //Verifica la opcion, realiza el calculo y asigna la unidad
     if(target==='M1'){
         result = (M2 * V2)/V1;
         unit= "M";
