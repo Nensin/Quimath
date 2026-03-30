@@ -2,6 +2,11 @@
 function openModal(id){
     document.getElementById('modal-' + id).classList.add('active');
     document.body.style.overflow = 'hidden';
+    if(id === 'masa-molar'){
+        const container = document.getElementById('mm-elementos');
+        container.innerHTML = ''; // limpia los campos anteriores
+        addElementoMm();          // agrega uno fresco
+    }
 }
 function closeModal(id){
     document.getElementById('modal-' + id).classList.remove('active')
@@ -132,14 +137,40 @@ function addElementoMm(){
     div.innerHTML = `
     <div class ="field">
         <label>Masa atomica</label>
-        <input type="number" step="any" class="mm-peso" placeholder="ej. 12g C" min='0/>
+        <input type="number" step="any" class="mm-peso" placeholder="ej. 12g C" min="0"/>
     </div>
     <div class="field">
         <label>Cantidad del elemento</label>
-        <input type="number" step="any" class="mm-cantidad" placerholder="ej. 2-H H₂O" min="1"/>
+        <input type="number" step="any" class="mm-cantidad" placeholder="ej. '2' H en H₂O" min="1"/>
     </div>
     `;
     container.appendChild(div);
+}
+//Funcion: Masa Molar
+function calcMasaMolar(){
+    const matomica=document.querySelectorAll('.mm-peso');
+    const cantidades=document.querySelectorAll('.mm-cantidad');
+    //Validacion
+    if(matomica.length === 0){
+        alert('Agrega al menos un elemento')
+        return;
+    }
+    let total = 0;
+
+    for(let i = 0; i < matomica.length; i++){
+        const masas = parseFloat(matomica[i].value);
+        const cantidad =parseFloat(cantidades[i].value)
+
+        //Validacion
+        if(isNaN(masas) || isNaN(cantidad)){
+            alert('Por favor ingresa todos los valores.')
+            return;
+        }
+
+        total += masas * cantidad;
+    }
+    showResult('masa-molar-result','masa-molar-value', total);
+
 }
 //Funcion Porciento de masa
 function calcPorciento(){
