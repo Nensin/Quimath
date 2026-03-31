@@ -39,15 +39,15 @@ document.addEventListener('keydown', (e) =>{
         boton.click();
     }
 });
-/*--------------------------------*/
+
 
 //Funcion para mostrar los resultados
 function showResult(boxId, valueId, value){
     document.getElementById(valueId).textContent=parseFloat(value.toFixed(8))
     document.getElementById(boxId).classList.add('visible')
 }
-/*--------------------------------*/
 
+//---------------Funciones para calculos--------------------//
 //Funcion Calcular los moles
 function calcMoles(){
     const masa = parseFloat(document.getElementById('moles-masa').value);
@@ -302,3 +302,4 @@ function calcEmpirica(){
     document.getElementById('empirica-value').textContent = formula;
     document.getElementById('empirica-result').classList.add('visible');
 }
+//----------------------------------------------------------//
