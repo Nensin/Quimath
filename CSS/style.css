@@ -209,6 +209,17 @@ main{
     background: var(--border);
     margin: 2opx 0;
  }
+/*--------Modales:Modal-label----*/
+ .modal label{
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--acc);
+    margin-bottom: 7px;
+    letter-spacing: 0.03rem;
+    text-transform: uppercase;
+    font-family: var(--font-head);
+ }
 /*----Fields-------*/
 .field{
     margin-bottom: 18px;
@@ -237,6 +248,34 @@ main{
 }
 .field input:focus, .field select:focus{
     border-color: var(--accent);
+}
+/*---------Container: Switch-------------*/
+.switch-container{
+    display: flex;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 99px;
+    padding: 4px;
+    margin-bottom: 20px;
+}
+
+/*--------Boton:switch-------*/
+.switch-btn{
+    flex: 1;
+    padding: 8px;
+    border: none;
+    border-radius: 99px;
+    background: none;
+    color: var(--muted);
+    font-family: var(--font-head);
+    font-size: 0.78rem;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+/*--------Boton:switch active-------*/
+.switch-btn.active{
+    background: var(--accent);
+    color: #0f1117;
 }
 
 /*--------Boton:Calcular-------*/
