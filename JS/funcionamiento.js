@@ -47,17 +47,44 @@ function showResult(boxId, valueId, value){
     document.getElementById(boxId).classList.add('visible')
 }
 
+//Funcion para cambiar de modos en Modal:Moles//
+function switchModo(modo){
+    // Cambia los botones del switch
+    document.getElementById('btn-gramos').classList.toggle('active', modo === 'gramos');
+    document.getElementById('btn-moles').classList.toggle('active', modo === 'moles');
+  
+    // Cambia el label del input según el modo
+    if(modo === 'gramos'){
+      document.getElementById('moles-masa-label').textContent = 'Masa del compuesto (g)';
+    } else {
+      document.getElementById('moles-masa-label').textContent = 'Moles (mol)';
+    }
+  
+    // Limpia el resultado al cambiar
+    document.getElementById('moles-result').classList.remove('visible');
+  }
+
+
 //---------------Funciones para calculos--------------------//
 //Funcion Calcular los moles
 function calcMoles(){
     const masa = parseFloat(document.getElementById('moles-masa').value);
     const mmolar =parseFloat(document.getElementById('moles-mmolar').value);
+    const modo = document.getElementById('btn-gramos').classList.contains('active')? 'gramos' : 'moles';
+
     //Validacion
     if(isNaN(masa) || isNaN(mmolar)){
         alert('Por favor ingresa todos los valores.')
         return;
     }
     let resultado = masa/mmolar;
+    if(modo === 'gramos'){
+        resultado = masa / mmolar   // g → mol
+    }else{
+        resultado = masa * mmolar   // mol → g
+    }
+
+    document.getElementById('moles-unit').textContent = modo === 'gramos' ? 'mol' : 'g';
     showResult('moles-result', 'moles-value', resultado);
 }
 //Funcion para Calcular la Molaridad

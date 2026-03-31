@@ -83,13 +83,15 @@
         <div class="formula-hint">n = m / M</div>
         <!--Container para elegir entre moles y gramos-->
         <div class="switch-container">
+
             <button class="switch-btn active" id="btn-gramos" onclick="switchModo('gramos')">Gramos → Moles</button>
+
             <button class="switch-btn" id="btn-moles" onclick="switchModo('moles')">Moles → Gramos</button>
           </div>
         <!--Field:Masa(cantidad)-->
         <div class="field">
-            <label>Masa del compuesto (g)</label>
-            <input type="number" id="moles-masa" placeholder="ej. 36" min="0"/>
+            <label id="moles-masa-label">Masa del compuesto (g)</label>
+            <input type="number" id="moles-masa" placeholder="ej. 3" min="0"/>
         </div>
         <!--Field:Mm(Masa molar)-->
         <div class="field">
@@ -102,7 +104,7 @@
         <div class="result-box" id="moles-result">
             <div class="result-label">Resultado</div>
             <div class="result-value" id="moles-value">—</div>
-            <div class="result-unit">mol</div>
+            <div class="result-unit" id="moles-unit">mol</div>
         </div>
  </div>
 </div>
