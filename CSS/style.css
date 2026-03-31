@@ -238,13 +238,18 @@ main{
 .field input:focus, .field select:focus{
     border-color: var(--accent);
 }
-
+/*Crea el scroll en Mm y Fe*/
 #mm-elementos{
     max-height: 280px;
     overflow-y: auto;
     padding-right: 6px;
 }
-/*Ajustes para la barra de scroll de Masa Molar*/
+#fe-elementos{
+    max-height: 280px;
+    overflow-y: auto;
+    padding-right: 6px;
+}
+/*Ajustes para la barra de scroll de Masa Molar y Fe*/
 #mm-elementos::-webkit-scrollbar {
     width: 4px;
 }
@@ -255,6 +260,20 @@ main{
 }
 
 #mm-elementos::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 99px;
+}
+/*Formula Empirica*/
+#fe-elementos::-webkit-scrollbar {
+    width: 4px;
+}
+
+#fe-elementos::-webkit-scrollbar-track {
+    background: var(--border);
+    border-radius: 99px;
+}
+
+#fe-elementos::-webkit-scrollbar-thumb {
     background: var(--accent);
     border-radius: 99px;
 }
