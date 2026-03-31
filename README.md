@@ -14,11 +14,11 @@ Quimath es una página web que ofrece calculadoras interactivas para realizar c�
   -CSS
   -JavaScript
 ## Vista previa
-(link)
+https://nensin.github.io/Quimath/
 
-##Futuras mejoras:
+## Futuras mejoras:
 -Añadir más calculadoras químicas
 -Mejorar la interfaz de usuario (UI)
 
-##Autor:
+## Autor:
 Nensin Pérez Fernández
