@@ -176,7 +176,7 @@ function addElementoMm(){
     div.innerHTML = `
     <div class ="field">
         <label>Masa atomica</label>
-        <input type="number" step="any" class="mm-peso" placeholder="ej. 12g C" min="0"/>
+        <input type="number" step="any" class="mm-peso" placeholder="ej. 1g H" min="0"/>
     </div>
     <div class="field">
         <label>Cantidad del elemento</label>
