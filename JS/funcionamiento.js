@@ -242,43 +242,62 @@ function aEnteros(ratios){
 }
 //Funcion: Formula Empirica
 function calcEmpirica(){
-    const cantidades=document.querySelectorAll('.cantidad-g');
-    const matomica=document.querySelectorAll('.masa-atomica');
-    
+    const cantidades = document.querySelectorAll('.cantidad-g');
+    const matomica = document.querySelectorAll('.masa-atomica');
 
-    //Array que guarda los valores en el orden que fueron entrados
-    let moles = [];
-    //bucle que va dividiendo para hallay los moles
-    for(let i = 0; i<cantidades.length; i++){
-        const gramos =parseFloat(cantidades[i].value);
-        const masa =parseFloat(matomica[i].value);
-        moles.push(gramos/masa);
+    //Validacion: que haya al menos un elemento
+    if(cantidades.length === 0){
+        alert('Agrega al menos un elemento.');
+        return;
     }
-    
-    //busca el valor mas pequeño en el array moles
+
+    //Array que guarda los moles de cada elemento
+    let moles = [];
+
+    //Bucle que valida los inputs Y calcula los moles (gramos / masa atomica)
+    for(let i = 0; i < cantidades.length; i++){
+        const gramos = parseFloat(cantidades[i].value);
+        const masa = parseFloat(matomica[i].value);
+
+        //Validacion: que cada campo este lleno
+        if(isNaN(gramos) || isNaN(masa)){
+            alert('Por favor ingresa todos los valores.');
+            return;
+        }
+
+        moles.push(gramos / masa);
+    }
+
+    //Busca el valor mas pequeño en el array moles
     const molMin = Math.min(...moles);
-    
+
     //Array que guardara la division de todos por el minimo
     let ratios = [];
-    //Bucle que recorre el array moles diviendo por el mol mas pequeño y lo almacena en el array ratios
+
+    //Bucle que recorre el array moles dividiendo por el mol mas pequeño y lo almacena en ratios
     for(let i = 0; i < moles.length; i++){
-        ratios.push(moles[i]/molMin);
+        ratios.push(moles[i] / molMin);
     }
-    let enteros =aEnteros(ratios);
+
+    //Convierte los ratios a enteros usando la funcion aEnteros
+    let enteros = aEnteros(ratios);
 
     const simbolos = document.querySelectorAll('.fe-simbolo');
     let formula = '';
+
+    //Construye el string de la formula empirica
     for(let i = 0; i < enteros.length; i++){
         const simbolo = simbolos[i].value || '?';
         const subindice = enteros[i];
 
-        //Subindice == 1 no se escribe
+        //Subindice == 1 no se escribe en quimica
         if(subindice === 1){
             formula += simbolo;
-        }else{
-            formula += simbolo + subindice
+        } else {
+            formula += simbolo + subindice;
         }
     }
+
     //Muestra el resultado
     document.getElementById('empirica-value').textContent = formula;
     document.getElementById('empirica-result').classList.add('visible');
